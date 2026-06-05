@@ -27,9 +27,11 @@ const theme = useThemeStore()
     </header>
 
     <main>
-      <RouterView v-slot="{ Component }">
+      <RouterView v-slot="{ Component, route }">
         <Transition name="page" mode="out-in">
-          <component :is="Component" />
+          <section :key="route.fullPath" class="page-frame">
+            <component :is="Component" />
+          </section>
         </Transition>
       </RouterView>
     </main>

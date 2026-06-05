@@ -224,6 +224,10 @@ main {
   padding: 24px 0 56px;
 }
 
+.page-frame {
+  display: block;
+}
+
 .site-footer {
   padding: 28px 0 36px;
   color: var(--muted);
