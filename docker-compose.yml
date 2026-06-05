@@ -1,0 +1,8 @@
+services:
+  gameshelf:
+    build:
+      context: .
+      args:
+        VITE_RAWG_API_KEY: ${VITE_RAWG_API_KEY:-}
+    ports:
+      - "8080:80"
