@@ -11,7 +11,7 @@ GameShelf est une SPA Vue 3 qui permet d'explorer un catalogue de jeux video via
 - Statut, note et commentaire personnels pour chaque jeu.
 - Page statistiques protegee tant que la liste est vide.
 - Mode sombre persistant, preference systeme au premier lancement.
-- Routes chargees en lazy loading, transitions simples et PWA.
+- Routes chargees en lazy loading et transitions simples.
 - Composants reutilisables avec props, events, slots, `v-model` personnalise et `Teleport`.
 
 ## Stack
