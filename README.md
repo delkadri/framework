@@ -66,10 +66,6 @@ docker compose up --build
 
 L'application est servie sur http://localhost:8080.
 
-## Deploiement
-
-Le projet peut etre deploye sur Netlify, Vercel, Render ou tout hebergeur statique compatible Vite. La variable `VITE_RAWG_API_KEY` doit etre definie dans l'environnement de build.
-
 ## Notes de rendu
 
 RAWG impose une attribution lorsque ses donnees ou images sont utilisees. Un lien RAWG est affiche dans le pied de page.
