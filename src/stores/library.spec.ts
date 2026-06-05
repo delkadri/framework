@@ -28,6 +28,7 @@ describe('library store', () => {
     library.addGame(rawgGame)
     expect(library.isSaved(42)).toBe(true)
     expect(library.list[0].name).toBe('Portal 2')
+    expect(localStorage.getItem('gameshelf.library.v1')).toContain('Portal 2')
 
     library.updateGame(42, { status: 'done', userRating: 5, note: 'Coop parfait' })
     expect(library.findById(42)?.status).toBe('done')
@@ -35,6 +36,7 @@ describe('library store', () => {
 
     library.removeGame(42)
     expect(library.hasItems).toBe(false)
+    expect(localStorage.getItem('gameshelf.library.v1')).toBe('{}')
   })
 
   it('loads stored games from localStorage', () => {

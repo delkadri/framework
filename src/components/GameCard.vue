@@ -54,8 +54,8 @@ const platforms = computed(() => {
 
       <div class="card-actions">
         <slot name="actions" :game="game">
-          <button v-if="!saved" type="button" class="primary small" @click="$emit('add', game)">Ajouter</button>
-          <button v-else type="button" class="ghost small" @click="$emit('remove', game.id)">Retirer</button>
+          <button v-if="!saved" type="button" class="primary small" @click.stop="$emit('add', game)">Ajouter</button>
+          <button v-else type="button" class="ghost small" @click.stop="$emit('remove', game.id)">Retirer</button>
         </slot>
       </div>
     </div>

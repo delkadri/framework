@@ -6,7 +6,7 @@ import GameCard from '@/components/GameCard.vue'
 import SearchBox from '@/components/SearchBox.vue'
 import { fetchGames, RawgMissingKeyError } from '@/services/rawg'
 import { useLibraryStore } from '@/stores/library'
-import type { CatalogFilters, RawgGameSummary } from '@/types/game'
+import type { CatalogFilters, PersonalGame, RawgGameSummary } from '@/types/game'
 
 const library = useLibraryStore()
 const filters = reactive<CatalogFilters>({
@@ -87,6 +87,10 @@ async function loadGames(): Promise<void> {
     loading.value = false
   }
 }
+
+function saveGame(game: RawgGameSummary | PersonalGame): void {
+  library.addGame(game)
+}
 </script>
 
 <template>
@@ -117,7 +121,7 @@ async function loadGames(): Promise<void> {
       :key="game.id"
       :game="game"
       :saved="library.isSaved(game.id)"
-      @add="library.addGame"
+      @add="saveGame"
       @remove="library.removeGame"
     />
   </div>

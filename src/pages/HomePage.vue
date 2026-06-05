@@ -5,7 +5,7 @@ import GameCard from '@/components/GameCard.vue'
 import EmptyState from '@/components/EmptyState.vue'
 import { fetchGames, RawgMissingKeyError } from '@/services/rawg'
 import { useLibraryStore } from '@/stores/library'
-import type { RawgGameSummary } from '@/types/game'
+import type { PersonalGame, RawgGameSummary } from '@/types/game'
 
 const library = useLibraryStore()
 const games = ref<RawgGameSummary[]>([])
@@ -32,6 +32,10 @@ async function loadHighlights(): Promise<void> {
   } finally {
     loading.value = false
   }
+}
+
+function saveGame(game: RawgGameSummary | PersonalGame): void {
+  library.addGame(game)
 }
 </script>
 
@@ -81,7 +85,7 @@ async function loadHighlights(): Promise<void> {
       :key="game.id"
       :game="game"
       :saved="library.isSaved(game.id)"
-      @add="library.addGame"
+      @add="saveGame"
       @remove="library.removeGame"
     />
   </div>
